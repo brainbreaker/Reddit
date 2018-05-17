@@ -1,0 +1,18 @@
+{
+  "name": "reddit-server",
+  "version": "1.0.0",
+  "description": "A pretty basic server providing common Reddit like services",
+  "main": "index.js",
+  "scripts": {
+    "test": "red"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "reddit"
+  ],
+  "author": "Gautam Prajapati (brainbreaker)",
+  "license": "Apache-2.0"
+}
