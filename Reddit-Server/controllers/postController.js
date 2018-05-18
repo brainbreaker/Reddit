@@ -1,12 +1,12 @@
 var Post = require('../models/Post.js');
 
 exports.listAllPosts = (req, res) => {
-  Post.find({}).sort({votes: 'desc'}).(err, post) => {
+  Post.find({}).sort({votes: 'desc'}).exec(function(err, post) {
     if (err) {
       res.status(500).send(err);
     }
     res.status(200).json(post);
-  };
+  });
 };
 
 exports.createPost = (req, res) => {
@@ -50,6 +50,7 @@ exports.deletePost = (req, res) => {
             error: err
         })      
     }
+
     res.status(200).json({ message: "Post successfully deleted" });
   });
 };
@@ -60,6 +61,7 @@ exports.upvotePost = (req, res) => {
       if (err) {
         res.status(500).send(err);
       }
+
       // Increment the count of votes
       post.votes = post.votes + 1;
       post.save();

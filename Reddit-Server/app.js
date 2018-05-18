@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 const postController = require('./controllers/postController.js');
+const initializeDB = require('./init/initializeDB.js');
 // Database instance connection
 require('./config/db.js');
 
@@ -10,7 +11,7 @@ const port = process.env.PORT || 8000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+initializeDB.initializeDatabase();
 
 // API routes
 app.get('/', (req, res) => res.send('Hello There! - Welcome to my dummy Reddit API. See the documentation at http://github.com/brainbreaker/reddit to play with me.'));

@@ -9,8 +9,6 @@ const PostSchema = new Schema({
   image_url:      { type: String, required: true },
   author:         { type: String, required: true },
   content:        { type: String, required: true },
-  upvotes:        { type: Number, required: true },
-  downvotes:      { type: Number, required: true },
   votes:          { type: Number, required: true }
 })
 
