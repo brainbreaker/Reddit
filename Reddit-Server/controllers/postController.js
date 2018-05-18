@@ -1,17 +1,53 @@
-var Post = require('../models/post');
+var Post = require('../models/Post.js');
 
-module.exports = (app) => {
-
-  /* Create */
-  app.post('/posts', (req, res) => {
-    // Instantiate the Post model instance
-    var post = new Post(req.body);
-
-    // save the post instance to database(MongoDB)
-    post.save((err, post) => {
-      // redirect to the root
-      return res.redirect(`/`);
-    })
+exports.listAllPosts = (req, res) => {
+  Post.find({}, (err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200).json(post);
   });
+};
 
+exports.createPost = (req, res) => {
+  let newPost = new Post(req.body);
+  console.log("new Post - " + newPost);
+  newPost.save((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(201).json(post);
+  });
+};
+
+exports.readPost = (req, body) => {
+  Post.findById(req.params.postid, (err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200).json(post);
+  });
+};
+
+exports.updatePost = (req, res) => {
+  Post.findOneAndUpdate(
+    { _id: req.params.postid },
+    req.body,
+    { new: true },
+    (err, post) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.status(200).json(post);
+    }
+  );
+};
+
+exports.deletePost = (req, res) => {
+  Post.remove({ _id: req.params.postid }, (err, post) => {
+    if (err) {
+      res.status(404).send(err);
+    }
+    res.status(200).json({ message: "Post successfully deleted" });
+  });
 };
