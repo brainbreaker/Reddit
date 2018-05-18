@@ -11,12 +11,12 @@ exports.listAllPosts = (req, res) => {
 
 exports.createPost = (req, res) => {
   let newPost = new Post(req.body);
-  console.log("new Post - " + newPost);
+  console.log("New Post - " + newPost);
   newPost.save((err, post) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.status(201).json(post);
+    res.status(200).json(post);
   });
 };
 
@@ -44,9 +44,11 @@ exports.updatePost = (req, res) => {
 };
 
 exports.deletePost = (req, res) => {
-  Post.remove({ _id: req.params.postid }, (err, post) => {
+  Post.remove({ _id: req.params.postID }, (err, post) => {
     if (err) {
-      res.status(404).send(err);
+		res.status(500).json({
+            error: err
+        })      
     }
     res.status(200).json({ message: "Post successfully deleted" });
   });
