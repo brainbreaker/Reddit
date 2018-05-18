@@ -4,6 +4,7 @@
   "description": "A pretty basic server providing common Reddit like services",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "red"
   },
   "repository": {
@@ -16,6 +17,10 @@
   "author": "Gautam Prajapati (brainbreaker)",
   "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongoose": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
   }
 }
