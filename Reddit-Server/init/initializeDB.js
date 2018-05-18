@@ -1,4 +1,3 @@
-var fs = require('fs');
 var inputFile = './data.txt';
 var mongoose = require('mongoose');
 var Post = require('../models/Post.js');
