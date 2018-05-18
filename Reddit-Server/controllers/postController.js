@@ -1,17 +1,17 @@
 var Post = require('../models/Post.js');
 
 exports.listAllPosts = (req, res) => {
-  Post.find({}, (err, post) => {
+  Post.find({}).sort({votes: 'desc'}).(err, post) => {
     if (err) {
       res.status(500).send(err);
     }
     res.status(200).json(post);
-  });
+  };
 };
 
 exports.createPost = (req, res) => {
   let newPost = new Post(req.body);
-  console.log("New Post - " + newPost);
+  console.log("Creating a new post - " + newPost);
   newPost.save((err, post) => {
     if (err) {
       res.status(500).send(err);
@@ -21,7 +21,7 @@ exports.createPost = (req, res) => {
 };
 
 exports.readPost = (req, body) => {
-  Post.findById(req.params.postid, (err, post) => {
+  Post.findById(req.params.postID, (err, post) => {
     if (err) {
       res.status(500).send(err);
     }
@@ -31,7 +31,7 @@ exports.readPost = (req, body) => {
 
 exports.updatePost = (req, res) => {
   Post.findOneAndUpdate(
-    { _id: req.params.postid },
+    { _id: req.params.postID },
     req.body,
     { new: true },
     (err, post) => {
@@ -52,4 +52,35 @@ exports.deletePost = (req, res) => {
     }
     res.status(200).json({ message: "Post successfully deleted" });
   });
+};
+
+
+exports.upvotePost = (req, res) => {
+  Post.findById(req.params.postID, (err, post) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      // Increment the count of votes
+      post.votes = post.votes + 1;
+      post.save();
+
+      res.status(200);
+    }
+  );
+};
+
+exports.downvotePost = (req, res) => {
+  Post.findById(req.params.postID, (err, post) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      
+      // Let's allow to downvote only when votes are > 0
+      if(post.votes > 0) {
+        post.votes = post.votes - 1;
+        post.save();
+        res.status(200);
+      }
+    }
+  );
 };

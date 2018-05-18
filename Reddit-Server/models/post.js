@@ -5,8 +5,13 @@ const PostSchema = new Schema({
   createdAt:  	  { type: Date },
   updatedAt:	  { type: Date },
   title:    	  { type: String, required: true },
+  subreddit:      { type: String, required: true }, 
   image_url:      { type: String, required: true },
-  description:    { type: String, required: true }
+  author:         { type: String, required: true },
+  content:        { type: String, required: true },
+  upvotes:        { type: Number, required: true },
+  downvotes:      { type: Number, required: true },
+  votes:          { type: Number, required: true }
 })
 
 PostSchema.pre('save', (next) => {

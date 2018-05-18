@@ -26,9 +26,17 @@ app
   .put(postController.updatePost)
   .delete(postController.deletePost);
 
+app
+  .route("/posts/:postID/upvote")
+  .put(postController.upvotePost)
+
+app
+  .route("/posts/:postID/downvote")
+  .put(postController.downvotePost)
 
 
 
+// Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
