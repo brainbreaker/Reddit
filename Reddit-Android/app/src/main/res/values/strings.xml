@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Reddit</string>
     <string name="action_settings">Settings</string>
+    <string name="post_thumbnail">Post Thumbnail</string>
+    <string name="post_title">Post Title</string>
+    <string name="vote_count">0</string>
+    <string name="upvote_button">Upvote Button</string>
+    <string name="downvote_button">Downvote Button</string>
+    <string name="share">Share</string>
+    <string name="share_button">Share Button</string>
 </resources>
