@@ -21,4 +21,8 @@
     <string name="exceeds_char_messagge">Content should not exceed 255 characters</string>
     <string name="post_submitted_successfully">Hurray! Post submitted successfully.</string>
     <string name="sending_failed">Sending Failed</string>
+    <string name="post_upvoted_string">Post Upvoted</string>
+    <string name="is_toast_string">is toast</string>
+    <string name="click_upvote_String">Click on upvote button</string>
+    <string name="click_downvote_string">downvote click</string>
 </resources>
