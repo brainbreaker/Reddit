@@ -2,6 +2,8 @@ package com.carousell.brainbreaker.reddit.Retrofit;
 
 import com.carousell.brainbreaker.reddit.Model.Post;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -17,7 +19,7 @@ public interface RedditAPIInterface {
 
     // Get me top 20 posts sorted by votes count
     @GET("/posts")
-    Call<Post> getAllPosts();
+    Call<ArrayList<Post>> getAllPosts();
 
     // Submit a new post
     @FormUrlEncoded
