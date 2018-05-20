@@ -3,11 +3,11 @@ A simple reddit clone on Android backed by dummy Node.js API
 
 This project has two parts - Android app(Reddit-Android) and a dummy API(Reddit-Server) written in Node.js backed by MongoDB. 
 
-Reddit-Android app consumes the API to render a list of Top 20 posts in sorted order. It supports some basic features like upvoting/downvoting a post, creating a new post and refresh.
+**Reddit-Android** app consumes the API to render a list of Top 20 posts in sorted order. It supports some basic features like upvoting/downvoting a post, creating a new post and refresh.
 
-Reddit-Server API is a basic implementation with which you can perform basic CRUD(CREATE, READ, UPDATE and DELETE) operations on Posts. It is backed by a predefined MongoDB database hosted on [Atlas](https://docs.atlas.mongodb.com/). This API also lives on [Heroku](https://www.heroku.com) - http://pacific-caverns-24056.herokuapp.com/ 
+**Reddit-Server** API is a basic implementation with which you can perform basic CRUD(CREATE, READ, UPDATE and DELETE) operations on Posts. It is backed by a predefined MongoDB database hosted on [Atlas](https://docs.atlas.mongodb.com/). This API also lives on [Heroku](https://www.heroku.com) - http://pacific-caverns-24056.herokuapp.com/ 
 
-See [API Documentation and Usage](#api-documentation-and-usage) below on how to use it.
+See [API Documentation and Usage](#api-documentation-and-usage) below on how to use it. Source code is has **detailed inline comments** to make it more understandable wherever needed.
 
 # Reddit-Android
 
