@@ -7,15 +7,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.carousell.brainbreaker.reddit.Adapter.RecyclerViewAdapter;
 import com.carousell.brainbreaker.reddit.Model.Post;
@@ -34,8 +33,13 @@ public class MainActivity extends AppCompatActivity {
     public static RedditAPIInterface redditAPIInterface;
     private RecyclerViewAdapter recyclerViewAdapter;
     RecyclerView postsRecyclerView;
-    ArrayList<Post> postArrayList;
     SweetAlertDialog pDialog;
+
+    /**
+     * ArrayList of Posts to be fetched from server. This acts as an in-memory data structure to hold the posts till the
+     * application is running.
+     * */
+    ArrayList<Post> postArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Instantiate the Recycler View and set LayoutManager
         postsRecyclerView = (RecyclerView) findViewById(R.id.postsRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         postsRecyclerView.setLayoutManager(linearLayoutManager);
@@ -57,10 +62,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         postArrayList = new ArrayList<>();
+
+        // Instantiate the reddit API interface
         redditAPIInterface = RetrofitAPIClient.getClient().create(RedditAPIInterface.class);
 
+        // Perform the network operation only if network is available.
         if (isNetworkAvailable(this)) {
             fetchAllPosts();
+        } else {
+            Toast.makeText(this, getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 
@@ -124,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void showErrorDialog() {
         new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-                .setTitleText("Oops...")
-                .setContentText("Something went wrong!")
+                .setTitleText(getString(R.string.oops_string))
+                .setContentText(this.getString(R.string.check_internet))
                 .show();
     }
 

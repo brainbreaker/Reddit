@@ -25,4 +25,5 @@
     <string name="is_toast_string">is toast</string>
     <string name="click_upvote_String">Click on upvote button</string>
     <string name="click_downvote_string">downvote click</string>
+    <string name="oops_string">Oops...</string>
 </resources>

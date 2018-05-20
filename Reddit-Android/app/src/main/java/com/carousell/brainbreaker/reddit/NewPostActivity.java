@@ -83,34 +83,4 @@ public class NewPostActivity extends AppCompatActivity {
             }
         });
     }
-
-    /**
-     * Duplicate method just to test the sending of post without any UI formalities
-     * @param newPost - A new post object
-     *
-     **/
-    public static Post sendNewPostTest(Post newPost) {
-        final Post[] post = new Post[1];
-
-        Call<Post> call = RetrofitAPIClient.getClient().create(RedditAPIInterface.class).createNewPost(newPost.getTitle()
-                , newPost.getContent()
-                , newPost.getImage_url()
-                , newPost.getSubreddit()
-                , newPost.getAuthor()
-                , newPost.getVotes());
-        call.enqueue(new Callback<Post>() {
-            @Override
-            public void onResponse(Call<Post> call, retrofit2.Response<Post> response) {
-                post[0] =  response.body();
-                System.out.println(post[0].getAuthor());
-            }
-
-            @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                System.out.println(R.string.sending_failed);
-            }
-        });
-
-        return post[0];
-    }
 }
