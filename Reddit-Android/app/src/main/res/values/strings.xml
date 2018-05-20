@@ -10,4 +10,6 @@
     <string name="share_button">Share Button</string>
     <string name="loading_Text">Fetching the latest posts for you...</string>
     <string name="post_content">Content comes here</string>
+    <string name="share_using">Share via</string>
+    <string name="check_internet">Please check your internet connection!</string>
 </resources>

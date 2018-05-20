@@ -1,6 +1,7 @@
 package com.carousell.brainbreaker.reddit.Retrofit;
 
 import com.carousell.brainbreaker.reddit.Model.Post;
+import com.carousell.brainbreaker.reddit.Model.Response;
 
 import java.util.ArrayList;
 
@@ -9,6 +10,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -24,7 +26,7 @@ public interface RedditAPIInterface {
     // Submit a new post
     @FormUrlEncoded
     @POST("/posts")
-    String createNewPost(@Field("title") String title
+    Call<Response> createNewPost(@Field("title") String title
             , @Field("content") String content
             , @Field("image_url") String image_url
             , @Field("subreddit") String subreddit
@@ -32,11 +34,11 @@ public interface RedditAPIInterface {
             , @Field("votes") Integer votes);
 
     // Upvote a post
-    @POST("/posts/{postID}/upvote")
-    String upvotePost(@Path("postID") String postID);
+    @PUT("/posts/{postID}/upvote")
+    Call<Response> upvotePost(@Path("postID") String postID);
 
     // Downvote a post
-    @POST("/posts/{postID}/downvote")
-    String downvotePost(@Path("postID") String postID);
+    @PUT("/posts/{postID}/downvote")
+    Call<Response> downvotePost(@Path("postID") String postID);
 
 }
