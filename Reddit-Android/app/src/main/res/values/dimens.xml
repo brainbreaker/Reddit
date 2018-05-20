@@ -2,4 +2,9 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="content_padding">8dp</dimen>
     <dimen name="content_margin">8dp</dimen>
+    <dimen name="button_margin">40dp</dimen>
+    <dimen name="large_content_padding">20dp</dimen>
+    <dimen name="text_medium">15sp</dimen>
+    <dimen name="icon_size">25dp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
 </resources>

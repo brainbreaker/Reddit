@@ -26,7 +26,7 @@ public interface RedditAPIInterface {
     // Submit a new post
     @FormUrlEncoded
     @POST("/posts")
-    Call<Response> createNewPost(@Field("title") String title
+    Call<Post> createNewPost(@Field("title") String title
             , @Field("content") String content
             , @Field("image_url") String image_url
             , @Field("subreddit") String subreddit

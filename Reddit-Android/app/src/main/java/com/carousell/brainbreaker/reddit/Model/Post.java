@@ -31,9 +31,9 @@ public class Post {
     // Constructor for creating a new post
     public Post(String title
                 , String content
+                , String image_url
                 , String subreddit
                 , String author
-                , String image_url
                 , Integer votes) {
 
         this.title = title;
@@ -44,7 +44,7 @@ public class Post {
         this.votes = votes;
     }
 
-    // Constructor with Post ID, to be used by GSON so as to get us the ID of incoming post
+    // Constructor with Post ID, to be used by GSON so as to get us the complete post with ID
     public Post(String postID
             , String title
             , String content

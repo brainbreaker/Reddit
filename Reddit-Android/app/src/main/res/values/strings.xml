@@ -12,4 +12,13 @@
     <string name="post_content">Content comes here</string>
     <string name="share_using">Share via</string>
     <string name="check_internet">Please check your internet connection!</string>
+    <string name="hint_url">Have an Image?</string>
+    <string name="hint_content">Your content here</string>
+    <string name="hint_subreddit">Subreddit</string>
+    <string name="button_post">Post</string>
+    <string name="title_of_your_awesome_post">Title of your awesome post</string>
+    <string name="mandatory_text">All fields are mandatory</string>
+    <string name="exceeds_char_messagge">Content should not exceed 255 characters</string>
+    <string name="post_submitted_successfully">Hurray! Post submitted successfully.</string>
+    <string name="sending_failed">Sending Failed</string>
 </resources>

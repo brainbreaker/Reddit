@@ -1,6 +1,7 @@
 package com.carousell.brainbreaker.reddit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -30,7 +31,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RedditAPIInterface redditAPIInterface;
+    public static RedditAPIInterface redditAPIInterface;
     private RecyclerViewAdapter recyclerViewAdapter;
     RecyclerView postsRecyclerView;
     ArrayList<Post> postArrayList;
@@ -46,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         postsRecyclerView.setLayoutManager(linearLayoutManager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.create_post_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, NewPostActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -60,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (isNetworkAvailable(this)) {
             fetchAllPosts();
-            showProgressDialog();
         }
     }
 
@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
      * and populate the recycler view
      */
     private void fetchAllPosts() {
+        showProgressDialog();
+
         Call<ArrayList<Post>> call = redditAPIInterface.getAllPosts();
         call.enqueue(new Callback<ArrayList<Post>>() {
             @Override
@@ -142,7 +144,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_refresh) {
+            fetchAllPosts();
             return true;
         }
 
