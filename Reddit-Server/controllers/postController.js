@@ -1,7 +1,7 @@
 var Post = require('../models/Post.js');
 
 exports.listAllPosts = (req, res) => {
-  Post.find({}).sort({votes: 'desc'}).exec(function(err, post) {
+  Post.find({}).sort({votes: 'desc'}).limit(20).exec(function(err, post) {
     if (err) {
       res.status(500).send(err);
     }
