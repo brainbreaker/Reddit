@@ -7,4 +7,5 @@
     <dimen name="text_medium">15sp</dimen>
     <dimen name="icon_size">25dp</dimen>
     <dimen name="text_size_large">20sp</dimen>
+    <dimen name="image_thumbnail_size">130dp</dimen>
 </resources>

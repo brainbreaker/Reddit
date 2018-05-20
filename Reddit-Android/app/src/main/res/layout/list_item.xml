@@ -127,7 +127,7 @@
                 android:id="@+id/thumbnail"
                 android:layout_weight="0.30"
                 android:layout_width="0dp"
-                android:layout_height="130dp"
+                android:layout_height="@dimen/image_thumbnail_size"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/post_thumbnail"
                 android:scaleType="centerCrop"

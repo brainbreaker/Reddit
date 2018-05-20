@@ -212,7 +212,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     // Testing functions
-
     /**
      * Duplicate function to test upvoting or downvoting a post, to be used in unit testing
      * @param postID - ID of the post to be upvoted/downvoted
