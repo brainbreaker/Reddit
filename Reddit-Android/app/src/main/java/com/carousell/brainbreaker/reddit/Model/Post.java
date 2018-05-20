@@ -83,7 +83,7 @@ public class Post {
     }
 
     public String getImage_url() {
-        return getImage_url();
+        return image_url;
     }
 
     public Integer getVotes() {
