@@ -40,8 +40,7 @@ Reddit-Android/
 3. After build succeeds, connect your Android Device and  go to `Run -> Run app` to install the application on your device. An **APK** can also be found (here)[https://drive.google.com/file/d/1YyHCMFxP5ZFDLTmMS_eY5IE4Gpq4FxcE/view?usp=sharing].
 
 4. To run tests, from Android Studio from `Select Run/Debug Configuration` dropdown, choose `MainActivityTest` or `UpvoteDownvoteTest` and click 'Run'. 
-
-You can also navigate to `androidTest/` or `test/` directory under `app/src/`, right click and select Run on respective test. `UpvoteDownvoteTest` is a unit test which can be run without any device, however `MainActivityTest` being an instrumentation test would need a device or emulator.
+    You can also navigate to `androidTest/` or `test/` directory under `app/src/`, right click and select Run on respective test. `UpvoteDownvoteTest` is a unit test which can be run without any device, however `MainActivityTest` being an instrumentation test would need a device or emulator.
 
 5. This app has been tested on Motorola G4 Plus physical device running Android 7.0 and Nexus 5X emulator running on Android 8.0.
 
