@@ -37,7 +37,7 @@ Reddit-Android/
     - Recycler View and Card View from Android support library
     - JUnit and Espresso for writing unit and instrumentation tests
 
-3. After build succeeds, connect your Android Device and  go to `Run -> Run app` to install the application on your device. An **APK** can also be found (here)[https://drive.google.com/file/d/1YyHCMFxP5ZFDLTmMS_eY5IE4Gpq4FxcE/view?usp=sharing].
+3. After build succeeds, connect your Android Device and  go to `Run -> Run app` to install the application on your device. An **APK** can also be found [here](https://drive.google.com/file/d/1YyHCMFxP5ZFDLTmMS_eY5IE4Gpq4FxcE/view?usp=sharing).
 
 4. To run tests, from Android Studio from `Select Run/Debug Configuration` dropdown, choose `MainActivityTest` or `UpvoteDownvoteTest` and click 'Run'. 
     You can also navigate to `androidTest/` or `test/` directory under `app/src/`, right click and select Run on respective test. `UpvoteDownvoteTest` is a unit test which can be run without any device, however `MainActivityTest` being an instrumentation test would need a device or emulator.
@@ -89,7 +89,7 @@ Reddit-Server/
 
 ## Project Setup
 
-1. Setup Node.js Development Setup environment according to your OS by following the steps (here)[http://www.tutorialsteacher.com/nodejs/setup-nodejs-development-environment].
+1. Setup Node.js Development Setup environment according to your OS by following the steps [here](http://www.tutorialsteacher.com/nodejs/setup-nodejs-development-environment).
 2. Clone the repository and `cd` into `Reddit-Server/`
 3. Run `npm install` to install all the packages specified in `package.json` locally in your system. 
 4. Fire up terminal and type `node index.js` to run the server. It'll first populate the dummy data in database. You can also specify the `PORT` beforehand by `export PORT = YOUR_PORT_NUMBER` to run the server at your preferred `PORT`.
