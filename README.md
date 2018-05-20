@@ -28,6 +28,7 @@ Reddit-Android/
 ## Build Setup and Information
 
 1. Clone the project and open the Reddit-Android/ project in Android Studio. This project has been coded in Android Studio 3.0.1
+
 2. Android Studio will automatically take care of your build. Just to note, this project -
     - Targets SDK version 27
     - Uses Android Gradle Plugin Version 3.1.1
@@ -35,21 +36,29 @@ Reddit-Android/
     - Uses Picasso to load the images
     - Recycler View and Card View from Android support library
     - JUnit and Espresso for writing unit and instrumentation tests
+
 3. After build succeeds, connect your Android Device and  go to `Run -> Run app` to install the application on your device. An **APK** can also be found (here)[https://drive.google.com/file/d/1YyHCMFxP5ZFDLTmMS_eY5IE4Gpq4FxcE/view?usp=sharing].
-4. To run tests, from Android Studio from `Select Run/Debug Configuration` dropdown, choose `MainActivityTest` or `UpvoteDownvoteTest` and click 'Run'. You can also navigate to `androidTest/` or `test/` directory under `app/src/`, right click and select Run on respective test. `UpvoteDownvoteTest` is a unit test which can be run without any device, however `MainActivityTest` being an instrumentation test would need a device or emulator.
+
+4. To run tests, from Android Studio from `Select Run/Debug Configuration` dropdown, choose `MainActivityTest` or `UpvoteDownvoteTest` and click 'Run'. 
+
+You can also navigate to `androidTest/` or `test/` directory under `app/src/`, right click and select Run on respective test. `UpvoteDownvoteTest` is a unit test which can be run without any device, however `MainActivityTest` being an instrumentation test would need a device or emulator.
+
 5. This app has been tested on Motorola G4 Plus physical device running Android 7.0 and Nexus 5X emulator running on Android 8.0.
 
 ## Brief Overview of Java Source Code
 
-`app/src/` has been divided into three major packages - 
-    1. `androidTest/` - Contains one instrumentation test `MainActivityTest.java` which tests MainActivity with respect to RecyclerView, whether it is being displayed or not, whether it has items or not, whether upvoting/downvoting posts is successful etc.
-    2. `test/` - Contains one unit test which tests whether requests on upvote/downvote endpoints are successful and increasing/decreasing the count of votes. 
-    3. `src/` - Contains different packages like - 
-        - `Adapter/` - Contains RecyclerViewAdapter class which populates the content in RecyclerView
-        - `Models/` - Contains the model classes for a post and simple JSON response
-        - `Retrofit/` - Contains the `RetrofitAPIClient` and `RedditAPIInterface` defining methods to interact with API Endpoints.
-        - `MainActivity.java` - Home page of the app which displays the list of posts in recycler view
-        - `NewPostActivity.java` - Contains the form to create a new post 
+`app/src/` has been divided into three major packages -
+
+1. `androidTest/` - Contains one instrumentation test `MainActivityTest.java` which tests MainActivity with respect to RecyclerView, whether it is being displayed or not, whether it has items or not, whether upvoting/downvoting posts is successful etc.
+
+2. `test/` - Contains one unit test which tests whether requests on upvote/downvote endpoints are successful and increasing/decreasing the count of votes. 
+
+3. `src/` - Contains different packages like - 
+    - `Adapter/` - Contains RecyclerViewAdapter class which populates the content in RecyclerView
+    - `Models/` - Contains the model classes for a post and simple JSON response
+    - `Retrofit/` - Contains the `RetrofitAPIClient` and `RedditAPIInterface` defining methods to interact with API Endpoints.
+    - `MainActivity.java` - Home page of the app which displays the list of posts in recycler view
+    - `NewPostActivity.java` - Contains the form to create a new post 
 
 ## Video
 
@@ -57,7 +66,7 @@ The video of application can be found here - https://drive.google.com/open?id=1D
 
 
 
-#Reddit-Server
+# Reddit-Server
 
 ## Directory Structure
 ```
