@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +70,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(currentPost.getContent()));
+                context.startActivity(browserIntent);
+            }
+        });
 
+        // Open the content in Android Browser when tapped on content
+        holder.content.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(currentPost.getContent()));
                 context.startActivity(browserIntent);
             }
@@ -93,7 +100,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
-        // // Share when clicked on share button
+        // Share when clicked on share button
         holder.shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,9 +170,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         context.startActivity(Intent.createChooser(sharingIntent, context.getResources().getString(R.string.share_using)));
     }
 
-
+    /**
+     * Holder class containing a member variable for any view that will be rendered on a row
+     * */
     class CustomViewHolder extends RecyclerView.ViewHolder {
-        // Holder class containing a member variable for any view that will be rendered on a row
+
 
         ImageView thumbnail;
         TextView title;
