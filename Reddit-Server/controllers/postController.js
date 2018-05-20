@@ -20,7 +20,7 @@ exports.createPost = (req, res) => {
   });
 };
 
-exports.readPost = (req, body) => {
+exports.readPost = (req, res) => {
   Post.findById(req.params.postID, (err, post) => {
     if (err) {
       res.status(500).send(err);
@@ -66,7 +66,7 @@ exports.upvotePost = (req, res) => {
       post.votes = post.votes + 1;
       post.save();
 
-      res.status(200);
+      res.status(200).json({message: "Post Upvoted successfully"});
     }
   );
 };
@@ -81,7 +81,7 @@ exports.downvotePost = (req, res) => {
       if(post.votes > 0) {
         post.votes = post.votes - 1;
         post.save();
-        res.status(200);
+        res.status(200).send({message: "Post downvoted successfully"});
       }
     }
   );
