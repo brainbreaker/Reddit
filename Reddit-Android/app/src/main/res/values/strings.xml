@@ -8,4 +8,6 @@
     <string name="downvote_button">Downvote Button</string>
     <string name="share">Share</string>
     <string name="share_button">Share Button</string>
+    <string name="loading_Text">Fetching the latest posts for you...</string>
+    <string name="post_content">Content comes here</string>
 </resources>
